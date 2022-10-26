@@ -35,6 +35,10 @@ buy us a round!
 Distributed as-is; no warranty is given.
 ****************************************************************/
 
+#define SDA 22
+#define SCL 19
+
+
 #include <Wire.h>
 #include <SparkFun_APDS9960.h>
 
@@ -46,7 +50,9 @@ uint16_t green_light = 0;
 uint16_t blue_light = 0;
 
 void setup() {
-  
+
+  Wire.begin(SDA, SCL);
+
   // Initialize Serial port
   Serial.begin(9600);
   Serial.println();

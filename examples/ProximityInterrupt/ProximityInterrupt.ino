@@ -41,8 +41,10 @@ Distributed as-is; no warranty is given.
 #include <SparkFun_APDS9960.h>
 
 // Pins
-#define APDS9960_INT    2  // Needs to be an interrupt pin
+#define APDS9960_INT    25  // Needs to be an interrupt pin
 #define LED_PIN         13 // LED for showing interrupt
+#define SDA 22
+#define SCL 19
 
 // Constants
 #define PROX_INT_HIGH   50 // Proximity level for interrupt
@@ -54,6 +56,8 @@ uint8_t proximity_data = 0;
 int isr_flag = 0;
 
 void setup() {
+
+  Wire.begin(SDA, SCL);  
   
   // Set LED as output
   pinMode(LED_PIN, OUTPUT);

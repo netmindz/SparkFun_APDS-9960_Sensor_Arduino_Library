@@ -34,6 +34,9 @@ buy us a round!
 Distributed as-is; no warranty is given.
 ****************************************************************/
 
+#define SDA 22
+#define SCL 19
+
 #include <Wire.h>
 #include <SparkFun_APDS9960.h>
 
@@ -42,7 +45,9 @@ SparkFun_APDS9960 apds = SparkFun_APDS9960();
 uint8_t proximity_data = 0;
 
 void setup() {
-  
+
+  Wire.begin(SDA, SCL);
+    
   // Initialize Serial port
   Serial.begin(9600);
   Serial.println();

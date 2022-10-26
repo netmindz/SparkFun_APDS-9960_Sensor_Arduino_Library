@@ -49,7 +49,9 @@ Distributed as-is; no warranty is given.
 #include <SparkFun_APDS9960.h>
 
 // Pins
-#define APDS9960_INT    2 // Needs to be an interrupt pin
+#define APDS9960_INT    25 // Needs to be an interrupt pin
+#define SDA 22
+#define SCL 19
 
 // Constants
 
@@ -59,6 +61,8 @@ int isr_flag = 0;
 
 void setup() {
 
+  Wire.begin(SDA, SCL);
+  
   // Set interrupt pin as input
   pinMode(APDS9960_INT, INPUT);
 
